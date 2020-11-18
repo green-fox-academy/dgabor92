@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding-left: 40px;
+  padding-right: 40px;
+  line-height: 2;
+}
+
+header {
+  background-image: url("anakin.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* padding-left: 30rem;
+  padding-right: 30rem; */
+  /* width: 75%;
+  height: 75%; */
+  padding: 12rem;
+  text-align: ;
+}
+main {
+  padding-top: 3rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
+  text-align: justify;
+}
