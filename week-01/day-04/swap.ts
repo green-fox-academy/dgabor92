@@ -6,4 +6,6 @@ let numberToSwap2: number = 526;
 [numberToSwap1, numberToSwap2] = [numberToSwap2, numberToSwap1]
 
 console.log(numberToSwap1);
-console.log(numberToSwap2);
+console.log(numberToSwap2)
+
+
