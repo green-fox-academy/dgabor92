@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>ChessBoard</title>
+  </head>
+  <style>
+    .chess-cell {
+      width: 40px;
+      height: 40px;
+      float: left;
+      border: 1px solid #000;
+    }
+
+    .chess-cell:nth-of-type(8n + 1) {
+      clear: left;
+    }
+
+    .chess-cell-black {
+      background-color: #000;
+    }
+
+    .chess-cell-white {
+      background-color: #fff;
+    }
+  </style>
+  <body>
+    <div id="chessboard"></div>
+  </body>
+  <script>
+    class ChessBoard {
+      draw(el) {
+        let black = "<div class='chess-cell chess-cell-black'>";
+        let white = "<div class='chess-cell chess-cell-white'>";
+
+        for (let row = 0; row < 8; row++) {
+          let startWithBlack = row % 2;
+          for (let col = 0; col < 8; col++) {
+            let cellType = startWithBlack ? black : white;
+            startWithBlack = !startWithBlack;
+            el.innerHTML += cellType;
+          }
+        }
+      }
+    }
+
+    let cb = new ChessBoard();
+    cb.draw(document.getElementById('chessboard'));
+  </script>
+</html>
