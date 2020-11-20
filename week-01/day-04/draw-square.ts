@@ -13,18 +13,38 @@ let lineCount: number = 6;
 //
 // The square should have as many lines as lineCount is
 
-function rectangle() {
+function square() {
   let r = '';
 
-  //Go about 10x6=60 counts
-  for (let i = 1; i <= 60; i++) {
-    if (i % 10 === 0)
-      //Insert line break every 10 counts
-      r += '\n';
-    else r += '%';
+  //Go about 6x6=36 counts
+  // for (let i = 1; i <= lineCount * lineCount; i++) {
+  //   if (i % lineCount === 0) {
+  //     //Insert line break every 6 counts
+  //     r += '\n';
+  //   } else r += '%';
+  // }
+  for (let sor = 0; sor < lineCount; sor++) {
+    if (sor === 0 || sor === lineCount - 1) {
+      // vagy a legfelső vagy a legalsó sor
+      for (
+        let oszlop = 0;
+        oszlop < lineCount;
+        oszlop++ // egy sorban lévő karaktereket írom
+      ) {
+        r += '%';
+      }
+    } else {
+      r += '%';
+      for (let space = 0; space <= lineCount - 3; space++) {
+        r += ' ';
+      }
+      r += '%';
+    }
+
+    r += '\n';
   }
 
   console.log(r);
 }
 
-rectangle();
+square();
