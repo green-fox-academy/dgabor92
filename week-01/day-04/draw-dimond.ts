@@ -15,7 +15,7 @@ let lineCount: number = 7;
 //
 // The diamond should have as many lines as lineCount is
 function diamond(val) {
-  var y,
+  let y,
     w,
     shape = '';
 
