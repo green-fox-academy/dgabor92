@@ -7,3 +7,9 @@
 // - It should print: ['GinGin', 'WhiskeyWhiskey', 'WineWine', 'BeerBeer']`
 
 let drinks: string[] = ['Gin', 'Whiskey', 'Wine', 'Beer'];
+
+// for (let i: number = 0; i < drinks.length; i++)
+let drinks2: string[] = drinks.map((i) => i + i);
+console.log(drinks2);
+
+// console.log(drinks2);
