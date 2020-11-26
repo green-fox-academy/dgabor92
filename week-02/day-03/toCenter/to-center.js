@@ -12,11 +12,18 @@ const ctx = canvas.getContext('2d');
 function drawLine(x, y) {
   ctx.beginPath();
   ctx.moveTo(x, y);
-  ctx.lineTo(300, 200);
+  ctx.lineTo(canvas.width / 2, canvas.height / 2);
   ctx.stroke();
 }
 
-drawLine(0, 0);
-drawLine(0, 400);
-drawLine(600, 400);
-drawLine(600, 0);
+// drawLine(20, 10);
+
+for (let x = 0; x <= canvas.width; x += 20) {
+  drawLine(x, 0);
+  drawLine(x, canvas.height);
+}
+
+for (let y = 0; y <= canvas.height; y += 20) {
+  drawLine(0, y);
+  drawLine(canvas.width, y);
+}
