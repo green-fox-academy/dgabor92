@@ -17,3 +17,4 @@ function change(): number[] {
 change();
 
 console.log(numbers[3]);
+console.log(numbers);
