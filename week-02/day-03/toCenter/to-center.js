@@ -16,4 +16,7 @@ function drawLine(x, y) {
   ctx.stroke();
 }
 
-drawLine(100, 25);
+drawLine(0, 0);
+drawLine(0, 400);
+drawLine(600, 400);
+drawLine(600, 0);
