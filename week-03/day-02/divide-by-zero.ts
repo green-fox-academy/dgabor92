@@ -17,4 +17,4 @@ function divideNumber(arr: number): number {
   }
 }
 
-console.log(divideNumber(0));
+console.log(divideNumber(100));
