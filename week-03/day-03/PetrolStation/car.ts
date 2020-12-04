@@ -11,4 +11,7 @@ export default class Car {
   getCapacity() {
     return this._capacity;
   }
+  getFilled() {
+    return (this._gasAmountCar = 100);
+  }
 }

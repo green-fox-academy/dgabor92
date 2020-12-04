@@ -15,7 +15,7 @@ export default class Station {
 
 let shell = new Station();
 let audi = new Car(10, 10);
-console.log(shell);
 
-console.log(shell.refill(audi));
+audi.getFilled();
+console.log('Gas Station actual: ' + shell.refill(audi));
 console.log(audi);
