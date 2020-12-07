@@ -23,8 +23,3 @@ export default class Tree {
     this._waterAmount = liter;
   }
 }
-
-// let akac = new Tree('szürke');
-// console.log(akac.needWater());
-// akac.watering(70);
-// console.log(akac.needWater());

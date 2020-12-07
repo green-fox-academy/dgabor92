@@ -14,13 +14,6 @@ export default class Garden {
   watering(liter: number) {
     console.log(`Watering with ${liter}`);
   }
-  addFlowers(Flower) {
-    this._folwers.push(Flower);
-  }
-
-  addTrees(Tree) {
-    this._trees.push(Tree);
-  }
 }
 let park = new Garden();
 let yellow = new Flower('yellow');
