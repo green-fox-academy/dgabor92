@@ -22,8 +22,3 @@ export default class Flower {
     this._waterAmount = liter;
   }
 }
-
-// let orchid = new Flower('white');
-// console.log(orchid.needWater());
-// orchid.watering(50);
-// console.log(orchid.needWater());
