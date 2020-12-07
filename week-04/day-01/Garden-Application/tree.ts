@@ -8,10 +8,14 @@ export default class Tree {
     this._color = color;
   }
   waterAmount(number: number) {
-    return (this._waterAmount = number);
+    if ((number = 10)) {
+      return (this._waterAmount += 4);
+    } else {
+      return (this._waterAmount = number);
+    }
   }
   needWater(): string {
-    if (this._waterAmount < 50) {
+    if (this._waterAmount < 10) {
       return `The ${this._color} Tree needs water`;
     } else {
       return `The ${this._color} Tree doesnt need water`;

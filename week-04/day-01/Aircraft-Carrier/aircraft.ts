@@ -29,7 +29,7 @@ export default class Aircraft {
   }
   getStatus() {
     console.log(
-      `Type: ${Aircraft.arguments} Ammo:${this._maxAmmo}, Base Damage: ${
+      `Type:  Ammo:${this._maxAmmo}, Base Damage: ${
         this._baseDamage
       }, All Damage:${this._baseDamage * this._maxAmmo}`
     );
