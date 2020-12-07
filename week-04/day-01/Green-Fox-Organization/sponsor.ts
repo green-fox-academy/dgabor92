@@ -5,11 +5,11 @@ export default class Sponsor extends Person {
   private _hiredStudents: number;
 
   constructor(
-    company: string,
-    hiredStudents: number,
     name?: string,
     age?: number,
-    gender?: string
+    gender?: string,
+    company?: string,
+    hiredStudents?: number
   ) {
     super(name, age, gender);
     this._company = company = 'Google';

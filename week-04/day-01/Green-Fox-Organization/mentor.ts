@@ -3,7 +3,7 @@ import Person from './person';
 export default class Mentor extends Person {
   private _level: string;
 
-  constructor(level: string, name?: string, age?: number, gender?: string) {
+  constructor(name?: string, age?: number, gender?: string, level?: string) {
     super(name, age, gender);
     this._level = level = 'intermediate';
   }
