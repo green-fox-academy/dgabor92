@@ -19,6 +19,6 @@ export default class Cohort {
     this._mentors.push(Mentor);
   }
   info() {
-    console.log(Cohort, this._students.length, this._mentors.length);
+    console.log(this._name, this._students.length, this._mentors.length);
   }
 }
