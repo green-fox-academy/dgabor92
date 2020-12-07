@@ -6,10 +6,10 @@ export default class Student extends Person {
   private _skippedDay: number;
 
   constructor(
-    previousOrganization: string,
     name?: string,
     age?: number,
-    gender?: string
+    gender?: string,
+    previousOrganization?: string
   ) {
     super(name, age, gender);
     this._previousOrganization = previousOrganization = 'The School of Life';
@@ -21,7 +21,7 @@ export default class Student extends Person {
   introduce(): string {
     return `Hi, I'm ${this._name}, a ${this._age} year old ${this._gender} from ${this._previousOrganization} who skipped ${this._skippedDay} days from the course already.`;
   }
-  skippedDay(numberOfDays: number) {
+  skipDays(numberOfDays: number) {
     this._skippedDay += numberOfDays;
   }
 }
