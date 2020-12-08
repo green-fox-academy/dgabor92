@@ -3,52 +3,49 @@
 export default class Aircraft {
   private _maxAmmo: number;
   private _baseDamage: number;
+  private _currentAmmo: number;
+  private _type: string;
 
-  constructor(maxAmmo: number, baseDamage: number) {
+  constructor(maxAmmo: number, baseDamage: number, type: string) {
     this._maxAmmo = maxAmmo;
     this._baseDamage = baseDamage;
+    this._type = type;
+    this._currentAmmo = 0;
   }
+
   fight() {
-    this._baseDamage = this._baseDamage * this._maxAmmo;
-    this._maxAmmo = 0;
+    let dmg = this._baseDamage * this._currentAmmo;
+    this._currentAmmo = 0;
+    return dmg;
   }
-  refill(num: number) {
-    if (num >= 8) {
-      F16._maxAmmo = 8;
+  refill(ammoCount: number) {
+    if (ammoCount >= this._maxAmmo) {
+      this._currentAmmo = this._maxAmmo;
+      return ammoCount - this._currentAmmo;
     } else {
-      console.log(`Remaining ammo: ${F16._maxAmmo - num}`);
-    }
-    if (num >= 12) {
-      F35._maxAmmo = 12;
-    } else {
-      console.log(`Remaining ammo: ${F35._maxAmmo - num}`);
+      this._currentAmmo += ammoCount;
+      return 0;
     }
   }
+  EnoughAmmo() {
+    return this._maxAmmo - this._currentAmmo;
+  }
+
   getType() {
-    return typeof Aircraft;
+    return this._type;
   }
   getStatus() {
     console.log(
-      `Type:  Ammo:${this._maxAmmo}, Base Damage: ${
+      `Type:${this._type}  Ammo:${this._currentAmmo}, Base Damage: ${
         this._baseDamage
-      }, All Damage:${this._baseDamage * this._maxAmmo}`
+      }, All Damage:${this._baseDamage * this._currentAmmo}`
     );
   }
+  isPriority() {
+    if (this._type === 'F35') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-
-let F16 = new Aircraft(8, 30);
-let F35 = new Aircraft(12, 50);
-console.log(F16);
-console.log(F35);
-
-F16.fight();
-console.log(F16);
-F35.fight();
-console.log(F35);
-
-F16.refill(20);
-F35.refill(50);
-console.log(F16);
-console.log(F35);
-
-F16.getStatus();
