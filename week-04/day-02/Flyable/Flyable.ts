@@ -1,7 +1,7 @@
 'use strict';
 
 export default interface Flyable {
-  land();
-  fly();
-  takeOff();
+  land(): string;
+  fly(): string;
+  takeOff(): string;
 }
