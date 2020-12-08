@@ -13,6 +13,19 @@ export default class Aircraft {
     this._currentAmmo = 0;
   }
 
+  get currentAmmo() {
+    return this._currentAmmo;
+  }
+  set currentAmmo(ammo: number) {
+    if (ammo < 0) {
+      ammo = 0;
+    }
+    this._currentAmmo = ammo;
+  }
+  get baseDamage() {
+    return this._baseDamage;
+  }
+
   fight() {
     let dmg = this._baseDamage * this._currentAmmo;
     this._currentAmmo = 0;
@@ -35,11 +48,9 @@ export default class Aircraft {
     return this._type;
   }
   getStatus() {
-    console.log(
-      `Type:${this._type}  Ammo:${this._currentAmmo}, Base Damage: ${
-        this._baseDamage
-      }, All Damage:${this._baseDamage * this._currentAmmo}`
-    );
+    return `Type:${this._type}  Ammo:${this._currentAmmo}, Base Damage: ${
+      this._baseDamage
+    }, All Damage:${this._baseDamage * this._currentAmmo}`;
   }
   isPriority() {
     if (this._type === 'F35') {

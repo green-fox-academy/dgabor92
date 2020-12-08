@@ -3,7 +3,7 @@
 import Aircraft from './aircraft';
 
 export default class Carrier {
-  private _airCraftList: Aircraft[];
+  private _airCraftList: Aircraft[] = [];
   private _storeOfAmmo: number;
   private _healthPoint: number;
 
@@ -11,7 +11,12 @@ export default class Carrier {
     this._storeOfAmmo = storeOfAmmo;
     this._healthPoint = healthPoint;
   }
-
+  set healthPoint(newHealth: number) {
+    if (newHealth < 0) {
+      newHealth = 0;
+    }
+    this._healthPoint = newHealth;
+  }
   add(plane: Aircraft): void {
     this._airCraftList.push(plane);
   }
@@ -47,5 +52,30 @@ export default class Carrier {
         }
       }
     }
+  }
+  fight(enemy: Carrier) {
+    let allDmg = 0;
+    for (let b: number = 0; b < this._airCraftList.length; b++) {
+      let bigDmg =
+        this._airCraftList[b].currentAmmo * this._airCraftList[b].baseDamage;
+      this._airCraftList[b].currentAmmo = 0;
+      allDmg += bigDmg;
+    }
+    enemy._healthPoint = enemy._healthPoint - allDmg;
+  }
+  getStatus() {
+    if (this.healthPoint === 0) {
+      return `It's dead Jim :(`;
+    }
+    let totalDamage = 0;
+    for (let airCraft of this._airCraftList) {
+      totalDamage += airCraft.currentAmmo * airCraft.baseDamage;
+    }
+    let ret = `HP: ${this._healthPoint}, Aircraft count: ${this._airCraftList.length}, Ammo Storage: ${this._storeOfAmmo}, Total damage: ${totalDamage}\n`;
+    ret += 'AirCrafts: \n';
+    for (let r: number = 0; r < this._airCraftList.length; r++) {
+      ret += this._airCraftList[r].getStatus() + '\n';
+    }
+    return ret;
   }
 }
