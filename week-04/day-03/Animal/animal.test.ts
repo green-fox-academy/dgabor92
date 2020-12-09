@@ -17,3 +17,23 @@ test('should return string the thirst field', (t) => {
   t.deepEqual(actual, expected);
   t.end();
 });
+
+test('should return string the thirst field', (t) => {
+  const medve = new Animal(10, 10);
+  medve.play();
+  medve.play();
+  const actual = medve.thirst;
+  const expected = 52;
+  t.deepEqual(actual, expected);
+  t.end();
+});
+
+test('should return string the thirst field', (t) => {
+  const medve = new Animal(10, 10);
+  medve.play();
+  medve.play();
+  const actual = medve.hunger;
+  const expected = 52;
+  t.deepEqual(actual, expected);
+  t.end();
+});
