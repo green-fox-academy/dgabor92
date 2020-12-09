@@ -8,7 +8,7 @@
 
 'use strict';
 
-class Animal {
+export default class Animal {
   private _hunger: number;
   private _thirst: number;
 
@@ -19,7 +19,12 @@ class Animal {
     this._hunger = 50;
     this._thirst = 50;
   }
-
+  get hunger() {
+    return this._hunger;
+  }
+  get thirst() {
+    return this._thirst;
+  }
   eat() {
     return this._hunger--;
   }
