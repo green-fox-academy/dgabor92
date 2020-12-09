@@ -19,4 +19,11 @@ export default class Sharpie {
   use() {
     return this._inkAmount--;
   }
+
+get color(){
+return this._color;
+}
+get width(){
+return this._width;
+}
 }
