@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  height: 400px;
+  background-color: yellow;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.item {
+  height: 100px;
+  width: 100px;
+  background-color: purple;
+  /* position: absolute; */
+  right: 0;
+
+  align-self: flex-end;
+  margin-right: 10px;
+}
