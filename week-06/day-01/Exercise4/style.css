@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  height: 100px;
+  background-color: purple;
+}
+.item {
+  height: 50px;
+  width: 100px;
+  background-color: cyan;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.second-container {
+  display: flex;
+  justify-content: flex-start;
+  height: 100vh;
+}
+.yellow {
+  width: 80%;
+  background-color: yellow;
+}
+.green {
+  width: 20%;
+
+  background-color: green;
+}
