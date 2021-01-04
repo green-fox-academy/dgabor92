@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  height: 300px;
+  background-color: yellow;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.item {
+  margin-top: 100px;
+  height: 100px;
+  width: 100px;
+  background-color: purple;
+  flex-flow: column wrap;
+}
