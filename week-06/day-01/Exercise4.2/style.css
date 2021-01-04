@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  height: 100px;
+  background-color: purple;
+}
+.item {
+  height: 50px;
+  width: 100px;
+  background-color: cyan;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+.second-container {
+  display: flex;
+  justify-content: flex-start;
+  height: 100vh;
+}
+.yellow {
+  width: 80%;
+  margin-top: 10px;
+  margin-left: 60px;
+  margin-right: 15px;
+  background-color: yellow;
+}
+.green {
+  margin-right: 15px;
+  margin-top: 10px;
+  width: 20%;
+  background-color: green;
+}
+.third-container {
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  height: 100px;
+  background-color: gray;
+}
