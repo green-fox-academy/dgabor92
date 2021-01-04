@@ -1,0 +1,43 @@
+.page {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  height: 15vh;
+  width: 100%;
+  background-color: aqua;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+.orange {
+  width: 10%;
+  height: 70vh;
+  background-color: orange;
+}
+.red {
+  width: 70%;
+  height: 70vh;
+  background-color: red;
+}
+.black {
+  align-self: flex-end;
+  width: 60px;
+  height: 60px;
+  background-color: black;
+}
+.purple {
+  width: 10%;
+  height: 70vh;
+  background-color: purple;
+}
+.footer {
+  height: 15vh;
+  width: 100%;
+  background-color: blue;
+}
