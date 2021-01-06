@@ -1,0 +1,15 @@
+div {
+  float: left;
+}
+select {
+  width: 80px;
+  height: 100px;
+}
+ul {
+  margin-right: 35px;
+  list-style: none;
+  height: 100px;
+}
+button {
+  width: 80px;
+}
