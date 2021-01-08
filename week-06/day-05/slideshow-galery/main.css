@@ -3,3 +3,60 @@
   margin: 0;
   box-sizing: border-box;
 }
+.container {
+  overflow: hidden;
+  display: flex;
+  align-self: center;
+  height: 80vh;
+}
+.mySlides {
+  display: flex;
+  align-self: center;
+  height: auto;
+}
+.cursor {
+  cursor: pointer;
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  color: white;
+}
+.row {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-end;
+}
+.demo cursor {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}

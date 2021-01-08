@@ -7,6 +7,116 @@
     <title>Slideshow Galery</title>
   </head>
   <body>
+    <!-- container for the image galery -->
+    <div class="container">
+      <div class="mySlides">
+        <img src="/img/1.jpg" style="width: 100%" />
+      </div>
+      <div class="mySlides">
+        <img src="/img/2.jpg" style="width: 100%" />
+      </div>
+      <div class="mySlides">
+        <img src="/img/3.jpg" style="width: 100%" />
+      </div>
+      <div class="mySlides">
+        <img src="/img/4.jpg" style="width: 100%" />
+      </div>
+      <div class="mySlides">
+        <img src="/img/5.jpg" style="width: 100%" />
+      </div>
+      <div class="mySlides">
+        <img src="/img/6.jpg" style="width: 100%" />
+      </div>
+      <div class="mySlides">
+        <img src="/img/7.jpg" style="width: 100%" />
+      </div>
+      <div class="mySlides" style="width: 100%">
+        <img src="/img/8.jpg" />
+      </div>
+    </div>
+    <!-- buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <!-- img text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+
+      <div class="row">
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="/img/1.jpg"
+            style="width: 100%"
+            onclick="currentSlide(1)"
+            alt="Do something Great"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="/img/2.jpg"
+            style="width: 100%"
+            onclick="currentSlide(2)"
+            alt="Macbook"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="/img/3.jpg"
+            style="width: 100%"
+            onclick="currentSlide(3)"
+            alt="Covid"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="/img/4.jpg"
+            style="width: 100%"
+            onclick="currentSlide(4)"
+            alt="Code"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="/img/5.jpg"
+            style="width: 100%"
+            onclick="currentSlide(5)"
+            alt="Coding place"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="/img/6.jpg"
+            style="width: 100%"
+            onclick="currentSlide(6)"
+            alt="Amazing inveriment"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="/img/7.jpg"
+            style="width: 100%"
+            onclick="currentSlide(7)"
+            alt="Relax"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="/img/8.jpg"
+            style="width: 100%"
+            onclick="currentSlide(8)"
+            alt="Useful keys for gaming"
+          />
+        </div>
+      </div>
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>
