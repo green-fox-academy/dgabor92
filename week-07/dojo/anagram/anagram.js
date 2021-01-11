@@ -2,7 +2,7 @@
 
 // Create a function that takes two strings, and returns a boolean that should be True if the strings are anagrams and False otherwise.
 
-function anagram(string1, string2) {
+export default function anagram(string1, string2) {
   let charString1 = string1.split('').sort().join('');
   let charString2 = string2.split('').sort().join('');
 
@@ -17,4 +17,4 @@ function anagram(string1, string2) {
   }
 }
 
-module.exports = anagram;
+// module.exports = anagram;

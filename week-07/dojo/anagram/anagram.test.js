@@ -1,7 +1,9 @@
 'use strict';
 
-const test = require('tape');
-const anagram = require('./anagram');
+import { test } from 'tape';
+// const test = require('tape');
+// const anagram = require('./anagram');
+import anagram from './anagram.js';
 
 test('Should return true, if the two strings are anagram', (t) => {
   let string1 = 'node';
