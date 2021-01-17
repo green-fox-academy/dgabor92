@@ -4,6 +4,13 @@ const express = require('express');
 const mysql = require('mysql'); // require for connection
 const app = express();
 
+// Middleware, ami lefut mielőtt még az endpoint feldolgozása
+// megkezdődik, beállítjuk előre a response típusát JSON-re
+// app.use(function (req, res, next) {
+//   res.setHeader('Content-Type', 'application/json');
+//   next();
+// });
+
 app.use(express.json()); // use for bodyparse
 
 const conn = mysql.createConnection({
@@ -36,17 +43,89 @@ app.get('/posts', (req, res) => {
   });
 });
 
-app.post('/addposts', (req, res) => {
+app.post('/posts', (req, res) => {
+  let newDate = new Date();
   conn.query(
-    `INSERT INTO posts (title, url) VALUES (?,?);`,
-    [req.body.title, req.body.url],
-    (err, rows) => {
+    `INSERT INTO posts (title, url, timestamps) VALUES (?,?,?);`,
+    [req.body.title, req.body.url, newDate],
+    (err, insertStatus) => {
       if (err) {
         res.status(500).json(err);
         return;
       }
-      res.redirect('/');
+      console.log(insertStatus);
+      const postId = insertStatus.insertId;
+      conn.query(`SELECT * FROM posts WHERE id = ?`, [postId], (err, rows) => {
+        if (err) {
+          res.status(500).json(err);
+          return;
+        }
+        const post = rows[0];
+        res.status(200).json(post);
+      });
     }
   );
+});
+
+app.put('/posts/:id/upvote', (req, res) => {
+  const postId = req.params.id;
+
+  conn.query(`SELECT * FROM posts WHERE id = ?`, [postId], (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    }
+    if (rows.length === 0) {
+      res.status(404).json({
+        error: `Post [${postId}] not found.`,
+      });
+    }
+
+    // ID alapján keresünk, ezért biztosan 1 találat lesz, ami egy 1 elemű tömb
+    const post = rows[0];
+    post.score++;
+    conn.query(
+      `UPDATE posts SET score = ? WHERE id = ?`,
+      [post.score, postId],
+      (err, rows) => {
+        if (err) {
+          res.status(500).json(err);
+          return;
+        }
+        res.status(200).json(post);
+      }
+    );
+  });
+});
+
+app.put('/posts/:id/downvote', (req, res) => {
+  const postId = req.params.id;
+
+  conn.query(`SELECT * FROM posts WHERE id = ?`, [postId], (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    }
+    if (rows.length === 0) {
+      res.status(404).json({
+        error: `Post [${postId}] not found.`,
+      });
+    }
+
+    // ID alapján keresünk, ezért biztosan 1 találat lesz, ami egy 1 elemű tömb
+    const post = rows[0];
+    post.score--;
+    conn.query(
+      `UPDATE posts SET score = ? WHERE id = ?`,
+      [post.score, postId],
+      (err, rows) => {
+        if (err) {
+          res.status(500).json(err);
+          return;
+        }
+        res.status(200).json(post);
+      }
+    );
+  });
 });
 app.listen(3000);
