@@ -79,6 +79,7 @@ app.put('/posts/:id/upvote', (req, res) => {
       res.status(404).json({
         error: `Post [${postId}] not found.`,
       });
+      return;
     }
 
     // ID alapján keresünk, ezért biztosan 1 találat lesz, ami egy 1 elemű tömb
@@ -110,6 +111,7 @@ app.put('/posts/:id/downvote', (req, res) => {
       res.status(404).json({
         error: `Post [${postId}] not found.`,
       });
+      return;
     }
 
     // ID alapján keresünk, ezért biztosan 1 találat lesz, ami egy 1 elemű tömb
@@ -119,6 +121,67 @@ app.put('/posts/:id/downvote', (req, res) => {
       `UPDATE posts SET score = ? WHERE id = ?`,
       [post.score, postId],
       (err, rows) => {
+        if (err) {
+          res.status(500).json(err);
+          return;
+        }
+        res.status(200).json(post);
+      }
+    );
+  });
+});
+
+app.delete('/posts/:id', (req, res) => {
+  const postId = Number(req.params.id);
+
+  if (isNaN(postId)) {
+    res.status(400).json({
+      error: `Post id must be a number!`,
+    });
+  }
+
+  conn.query(`SELECT * FROM posts WHERE id = ?`, [postId], (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    }
+
+    if (rows.length === 0) {
+      res.status(404).json({
+        error: `Post [${postId}] not found.`,
+      });
+      return;
+    }
+
+    const post = rows[0];
+
+    conn.query(`DELETE FROM posts WHERE id = ?`, [postId], (err, status) => {
+      if (err) {
+        res.status(500).json(err);
+      }
+      res.status(200).json(post);
+    });
+  });
+});
+
+app.put('/posts/:id', (req, res) => {
+  const postId = req.params.id;
+  const { title, url } = req.body;
+
+  conn.query(`SELECT * FROM posts WHERE id = ?`, [postId], (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    }
+
+    const post = rows[0];
+    post.title = title;
+    post.url = url;
+
+    conn.query(
+      `UPDATE posts SET url = ?, title = ? WHERE id = ?`,
+      [url, title, postId],
+      (err, status) => {
         if (err) {
           res.status(500).json(err);
           return;
