@@ -58,8 +58,16 @@ const cocktails = [
 const alcoholList = ['gin', 'vodka', 'rum', 'tequila'];
 
 app.get('/', (req, res) => {
+  let arr = [];
+  for (let i = 0; i < cocktails.length; i++) {
+    if (cocktails[i].contains[i] === alcoholList[i]) {
+      arr.push(cocktails[i].name);
+    }
+  }
+  console.log(req.query.name);
   res.render('cocktails', {
     cocktails: cocktails,
+    // arr: arr,
   });
 });
 app.listen(3000);
