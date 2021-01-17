@@ -3,6 +3,7 @@
 const express = require('express');
 const mysql = require('mysql'); // require for connection
 const app = express();
+app.use(express.static('public'));
 
 // Middleware, ami lefut mielőtt még az endpoint feldolgozása
 // megkezdődik, beállítjuk előre a response típusát JSON-re
@@ -30,7 +31,7 @@ conn.connect((err) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Webpage working...');
+  res.sendFile('index.html');
 });
 
 app.get('/posts', (req, res) => {
