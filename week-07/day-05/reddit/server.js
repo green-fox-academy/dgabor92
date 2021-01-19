@@ -193,3 +193,5 @@ app.put('/posts/:id', (req, res) => {
   });
 });
 app.listen(3000);
+
+//regisztrál álláskeresőként szeretném magamat regisztráltatni
