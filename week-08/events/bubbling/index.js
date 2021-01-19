@@ -21,6 +21,16 @@ let left = () => {
   width -= 10;
 };
 
+let zoomIn = () => {
+  height *= 1.2;
+  width *= 1.2;
+};
+
+let zoomOut = () => {
+  height /= 0.2;
+  width /= 0.2;
+};
+
 let nav = document.querySelector('nav');
 
 nav.addEventListener('click', (event) => {
@@ -40,7 +50,7 @@ nav.addEventListener('click', (event) => {
     }
     if (direction === 'left') {
       left();
-      console.log(widht);
+      console.log(width);
     }
     if (direction === 'right') {
       right();
@@ -48,5 +58,15 @@ nav.addEventListener('click', (event) => {
     }
   }
   if (action === 'zoom') {
+    if (direction === 'in') {
+      zoomIn();
+      console.log(height);
+      console.log(width);
+    }
+    if (direction === 'out') {
+      zoomOut();
+      console.log(height);
+      console.log(width);
+    }
   }
 });
