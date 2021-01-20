@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #131419;
+}
+.form {
+  position: relative;
+  width: 350px;
+  padding: 40px 40px 60px;
+  background: #131419;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.name {
+  background: #131419;
+  width: 250px;
+  height: 30px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.email {
+  background: #131419;
+  width: 250px;
+  height: 30px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+button {
+  background: #131419;
+  width: 80px;
+  height: 30px;
+  border-radius: 14px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.25),
+    -5px -5px 10px rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+button:hover {
+  background: rgba(235, 10, 10, 0.644);
+}
