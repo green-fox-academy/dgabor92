@@ -5,6 +5,7 @@ let container = document.querySelector('.container');
 
 button.addEventListener('click', (e) => {
   e.preventDefault();
+
   fetch('http://api.icndb.com/jokes/random', {
     method: 'GET',
     // headers: {
@@ -21,11 +22,15 @@ button.addEventListener('click', (e) => {
     .then((result) => {
       let joke = result.value.joke;
       console.log(joke);
-      let p = document.createElement('p');
-      p.innerHTML = joke;
-      container.appendChild(p);
+      p(joke);
     })
     .catch((err) => {
       console.log(err);
     });
 });
+
+let p = (result) => {
+  let p = document.createElement('p');
+  p.innerHTML = result;
+  container.appendChild(p);
+};
