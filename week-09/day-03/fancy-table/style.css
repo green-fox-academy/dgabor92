@@ -1,0 +1,16 @@
+.fancy {
+  margin: auto;
+  border: 2px solid black;
+  padding: 10px;
+  width: 50%;
+}
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+thead {
+  background-color: rgb(88, 79, 79);
+  color: white;
+}
