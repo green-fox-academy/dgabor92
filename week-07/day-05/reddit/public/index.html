@@ -17,27 +17,34 @@
       <h1>SPACE</h1>
     </header>
     <main>
-      <form>
-        <input type="text" name="title" placeholder="Title here" />
-        <input type="text" name="url" placeholder="URL here" /> <br />
-        <button>Add post..!</button>
+      <form class="addform">
+        <input
+          class="title"
+          type="text"
+          name="title"
+          placeholder="Title here"
+          requiredű
+        />
+        <input
+          class="url"
+          type="text"
+          name="url"
+          placeholder="URL here"
+          required
+        />
+        <br />
+        <button class="button">Add post..!</button>
       </form>
       <br />
       <div class="main-posts">
-        <div class="single-post">
+        <!-- <div class="single-post">
           <div class="vote">
-            <img src="./img/upvote.png" alt="upvote" />
-            <p>0</p>
-            <img src="./img/downvote.png" alt="downvote" />
+            <img class="upvote" src="./img/upvote.png" alt="upvote" />
+            <div class="score"></div>
+            <img class="downvote" src="./img/downvote.png" alt="downvote" />
           </div>
-          <div class="link">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ex
-            fugiat qui sapiente cupiditate nemo, animi, asperiores assumenda
-            eaque ipsam ea nulla quasi doloremque a voluptatibus numquam iste
-            quam officia. Lorem ipsum dolor sit, amet consectetur adipisicing
-            elit.
-          </div>
-        </div>
+          <div class="link"></div>
+        </div> -->
       </div>
     </main>
     <aside>

@@ -54,7 +54,7 @@ app.post('/posts', (req, res) => {
         res.status(500).json(err);
         return;
       }
-      console.log(insertStatus);
+      // console.log(insertStatus);
       const postId = insertStatus.insertId;
       conn.query(`SELECT * FROM posts WHERE id = ?`, [postId], (err, rows) => {
         if (err) {
