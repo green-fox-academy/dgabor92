@@ -99,18 +99,10 @@ function appendPost(data) {
   singlepost.appendChild(link);
   let mainpost = document.querySelector('.main-posts');
   mainpost.insertBefore(singlepost, mainpost.childNodes[0]);
-  // main.insertBefore(mainpost, main.childNodes[0]);
 }
 
-// upvote.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   fetch('http://localhost:3000/posts/:id/upvote', {
-//     method: 'PUT',
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .then((data) => {
-//       data.score++;
-//     });
-// });
+// az upvote és downvote img-t belerakni egy btn-be
+// btn-nek adni egy classt pl upvoteBtn / downvoteBtn
+// btnnek adni setAttribute-al egy data-postId value: majd megtalálom
+// fetch és upvote linkre el kell küldeni a kérést
+// DOM-ba a számot frissíteni kell
