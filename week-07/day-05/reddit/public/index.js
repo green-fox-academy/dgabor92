@@ -12,13 +12,13 @@ window.onload = () => {
     })
     .then((data) => {
       console.log(data);
-      data.reverse();
+      data.reverse(); // to see the latest post
       for (let i = 0; i < data.length; i++) {
         loadingPosts(data[i]);
       }
     });
 };
-
+//load the all post when you enter the homepage
 function loadingPosts(data) {
   let a = document.createElement('a');
   a.setAttribute('href', data.url);
@@ -58,7 +58,6 @@ function loadingPosts(data) {
     e.preventDefault();
     let btnId = upvoteBtn.getAttribute('postId');
     console.log(btnId);
-    // let requestBody = JSON.stringify(btnId);
     fetch(`/posts/${btnId}/upvote`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
@@ -74,8 +73,6 @@ function loadingPosts(data) {
   downvoteBtn.addEventListener('click', (e) => {
     e.preventDefault();
     let btnId = downvoteBtn.getAttribute('postId');
-    console.log(btnId);
-    // let requestBody = JSON.stringify(btnId);
     fetch(`/posts/${btnId}/downvote`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
@@ -87,7 +84,7 @@ function loadingPosts(data) {
         score.innerHTML--;
       });
   });
-
+  // single post delete
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault();
     let deleteId = deleteBtn.getAttribute('postId');
@@ -111,8 +108,6 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   const title = document.querySelector('.title').value;
   const url = document.querySelector('.url').value;
-  console.log(title);
-  console.log(url);
   const postData = { title: title, url: url };
   const requestBody = JSON.stringify(postData);
   if ((title, url)) {
@@ -126,7 +121,6 @@ form.addEventListener('submit', (event) => {
       })
       .then((data) => {
         // add single post to main div
-        console.log(data);
         appendPost(data);
         let title = document.querySelector('.title');
         title.value = '';
@@ -134,6 +128,7 @@ form.addEventListener('submit', (event) => {
         url.value = '';
       })
       .then((data) => {
+        // redirect the homepage again
         window.location.assign('http://localhost:3000/');
       });
   }
@@ -165,9 +160,3 @@ function appendPost(data) {
   let mainpost = document.querySelector('.main-posts');
   mainpost.insertBefore(singlepost, mainpost.childNodes[0]);
 }
-
-// az upvote és downvote img-t belerakni egy btn-be
-// btn-nek adni egy classt pl upvoteBtn / downvoteBtn
-// btnnek adni setAttribute-al egy data-postId value: majd megtalálom
-// fetch és upvote linkre el kell küldeni a kérést
-// DOM-ba a számot frissíteni kell
