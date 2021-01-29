@@ -30,21 +30,58 @@ function loadingPosts(data) {
   score.innerHTML = data.score;
   let vote = document.createElement('div');
   vote.setAttribute('class', 'vote');
-  let upvote = document.createElement('img');
-  upvote.setAttribute('src', './img/upvote.png');
-  let downvote = document.createElement('img');
-  downvote.setAttribute('src', './img/downvote.png');
-  vote.appendChild(upvote);
+  let upvoteBtn = document.createElement('button');
+  upvoteBtn.setAttribute('class', 'upvoteBtn');
+  upvoteBtn.setAttribute('postId', data.id);
+  let downvoteBtn = document.createElement('button');
+  downvoteBtn.setAttribute('class', 'downvoteBtn');
+  downvoteBtn.setAttribute('postId', data.id);
+  vote.appendChild(upvoteBtn);
   vote.appendChild(score);
-  vote.appendChild(downvote);
+  vote.appendChild(downvoteBtn);
   let singlepost = document.createElement('div');
   singlepost.setAttribute('class', 'single-post');
   singlepost.appendChild(vote);
   singlepost.appendChild(link);
   let mainpost = document.querySelector('.main-posts');
   mainpost.appendChild(singlepost);
-}
 
+  // single post score ++
+  upvoteBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    let btnId = upvoteBtn.getAttribute('postId');
+    console.log(btnId);
+    // let requestBody = JSON.stringify(btnId);
+    fetch(`/posts/${btnId}/upvote`, {
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        score.innerHTML++;
+      });
+  });
+  // single post score --
+  downvoteBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    let btnId = downvoteBtn.getAttribute('postId');
+    console.log(btnId);
+    // let requestBody = JSON.stringify(btnId);
+    fetch(`/posts/${btnId}/downvote`, {
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        score.innerHTML--;
+      });
+  });
+}
+// add new post
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const title = document.querySelector('.title').value;
@@ -86,13 +123,13 @@ function appendPost(data) {
   score.innerHTML = data.score;
   let vote = document.createElement('div');
   vote.setAttribute('class', 'vote');
-  let upvote = document.createElement('img');
-  upvote.setAttribute('src', './img/upvote.png');
-  let downvote = document.createElement('img');
-  downvote.setAttribute('src', './img/downvote.png');
-  vote.appendChild(upvote);
+  let upvoteBtn = document.createElement('button');
+  upvoteBtn.setAttribute('class', 'upvoteBtn');
+  let downvoteBtn = document.createElement('button');
+  downvoteBtn.setAttribute('class', 'downvoteBtn');
+  vote.appendChild(upvoteBtn);
   vote.appendChild(score);
-  vote.appendChild(downvote);
+  vote.appendChild(downvoteBtn);
   let singlepost = document.createElement('div');
   singlepost.setAttribute('class', 'single-post');
   singlepost.appendChild(vote);

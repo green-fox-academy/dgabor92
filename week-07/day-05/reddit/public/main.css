@@ -54,6 +54,24 @@ input {
   width: 5%;
   text-align: center;
 }
+.upvoteBtn {
+  background-image: url('./img/upvote.png');
+  background-position: center;
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+  text-decoration: none;
+  border: none;
+}
+.downvoteBtn {
+  background-image: url('./img/downvote.png');
+  background-position: center;
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+  text-decoration: none;
+  border: none;
+}
 .link {
   width: 80%;
   text-align: left;
