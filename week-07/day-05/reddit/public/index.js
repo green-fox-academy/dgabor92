@@ -39,10 +39,15 @@ function loadingPosts(data) {
   vote.appendChild(upvoteBtn);
   vote.appendChild(score);
   vote.appendChild(downvoteBtn);
+  let deleteBtn = document.createElement('button');
+  deleteBtn.setAttribute('class', 'delete');
+  deleteBtn.setAttribute('postId', data.id);
+  deleteBtn.innerHTML = '❌';
   let singlepost = document.createElement('div');
   singlepost.setAttribute('class', 'single-post');
   singlepost.appendChild(vote);
   singlepost.appendChild(link);
+  singlepost.appendChild(deleteBtn);
   let mainpost = document.querySelector('.main-posts');
   mainpost.appendChild(singlepost);
 

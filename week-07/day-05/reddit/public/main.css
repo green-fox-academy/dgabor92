@@ -72,6 +72,12 @@ input {
   text-decoration: none;
   border: none;
 }
+.delete {
+  width: 8px;
+  height: 8px;
+  text-decoration: none;
+  border: none;
+}
 .link {
   width: 80%;
   text-align: left;
