@@ -67,6 +67,8 @@ function loadingPosts(data) {
       })
       .then((data) => {
         score.innerHTML++;
+        upvoteBtn.style.backgroundImage = "url('./img/upvoted.png')";
+        downvoteBtn.style.backgroundImage = "url('./img/downvote.png')";
       });
   });
   // single post score --
@@ -82,6 +84,8 @@ function loadingPosts(data) {
       })
       .then((data) => {
         score.innerHTML--;
+        downvoteBtn.style.backgroundImage = "url('./img/downvoted.png')";
+        upvoteBtn.style.backgroundImage = "url('./img/upvote.png')";
       });
   });
   // single post delete
