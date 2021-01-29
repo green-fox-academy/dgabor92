@@ -95,6 +95,9 @@ aside > h3 {
 aside > p {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+aside > ul {
+  padding: 20px;
+}
 .button {
   background-color: lightblue;
   width: 150px;
