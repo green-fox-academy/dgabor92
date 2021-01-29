@@ -12,6 +12,7 @@ window.onload = () => {
     })
     .then((data) => {
       console.log(data);
+      data.reverse();
       for (let i = 0; i < data.length; i++) {
         loadingPosts(data[i]);
       }
@@ -45,6 +46,7 @@ function loadingPosts(data) {
   deleteBtn.innerHTML = '❌';
   let singlepost = document.createElement('div');
   singlepost.setAttribute('class', 'single-post');
+  singlepost.setAttribute('postId', data.id);
   singlepost.appendChild(vote);
   singlepost.appendChild(link);
   singlepost.appendChild(deleteBtn);
@@ -85,6 +87,24 @@ function loadingPosts(data) {
         score.innerHTML--;
       });
   });
+
+  deleteBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    let deleteId = deleteBtn.getAttribute('postId');
+    let postId = singlepost.getAttribute('postId');
+    fetch(`/posts/${deleteId}`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if (postId === deleteId) {
+          singlepost.remove();
+        }
+      });
+  });
 }
 // add new post
 form.addEventListener('submit', (event) => {
@@ -112,6 +132,9 @@ form.addEventListener('submit', (event) => {
         title.value = '';
         let url = document.querySelector('.url');
         url.value = '';
+      })
+      .then((data) => {
+        window.location.assign('http://localhost:3000/');
       });
   }
 });
