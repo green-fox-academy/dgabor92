@@ -23,6 +23,41 @@ conn.connect((err) => {
   console.log('Connected to mysql');
 });
 
+app.get('/', (req, res) => {
+  conn.query('SELECT * FROM music;', (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    }
+    res.status(200).json(rows);
+  });
+});
+
+app.post('/playlist', (req, res) => {
+  let title = req.body.title;
+  let artist = req.body.artist;
+  let duration = req.body.duration;
+  let path =
+    /Users/abckmoo / Greenfox / dgabor92 / week - 10 / foxplayer / music;
+  conn.query(
+    'INSERT INTO music title, artist, duration, path VALUES (?,?,?,?);',
+    [title, artist, duration, path],
+    (err, insertStatus) => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      }
+      const postId = insertStatus.insertId;
+      conn.query('SELECT * FROM music WHERE id = ?', [postId], (err, rows) => {
+        if (err) {
+          res.status(500).json(err);
+          return;
+        }
+      });
+    }
+  );
+});
+
 app.listen(PORT, () => {
   console.log('Connected to the server');
 });
