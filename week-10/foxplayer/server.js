@@ -6,6 +6,7 @@ const app = express();
 const PORT = 3000;
 app.use(express.static('public')); // use static html file
 app.use(express.json()); //bodyparse
+require('dotenv').config();
 
 const conn = mysql.createConnection({
   // create connection with database
@@ -33,14 +34,13 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/playlist', (req, res) => {
+app.post('/playlists', (req, res) => {
   let title = req.body.title;
   let artist = req.body.artist;
   let duration = req.body.duration;
-  let path =
-    /Users/abckmoo / Greenfox / dgabor92 / week - 10 / foxplayer / music;
+  let path = `/Users/macbook/Greenfox/dgabor92/week-10/foxplayer/music`;
   conn.query(
-    'INSERT INTO music title, artist, duration, path VALUES (?,?,?,?);',
+    'INSERT INTO music (title, artist, duration, path) VALUES (?,?,?,?);',
     [title, artist, duration, path],
     (err, insertStatus) => {
       if (err) {
@@ -53,6 +53,7 @@ app.post('/playlist', (req, res) => {
           res.status(500).json(err);
           return;
         }
+        res.status(200).json(rows);
       });
     }
   );
