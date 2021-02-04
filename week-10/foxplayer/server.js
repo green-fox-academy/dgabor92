@@ -10,10 +10,10 @@ require('dotenv').config();
 
 const conn = mysql.createConnection({
   // create connection with database
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'musicplayer',
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
   insecureAuth: 'true',
 });
 
@@ -60,5 +60,5 @@ app.post('/playlists', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log('Connected to the server');
+  console.log(`Connected to the server PORT: ${PORT}`);
 });
